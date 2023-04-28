@@ -2,16 +2,16 @@
 - hosts: all
   tasks:
     - name: cleaning files
-      shell: sudo rm -rf ~/Software_Project_Major
+      shell: sudo rm -rf ~/Software-Project-Major
 
     - name: pull
-      shell: sudo git clone https://github.com/Sakshi-Zalavadia-itp/Software_Project_Major.git
+      shell: sudo git clone https://github.com/rajdeepsinh-jadeja-itp/Software-Project-Major.git
       
     - name: docker kill
-      shell: sudo docker stop ansapp || true && sudo docker rm ansapp || true
+      shell: sudo docker stop ansapp || true && sudo docker rm -f ansapp || true
     
     - name: docker build
-      shell: sudo docker build -t spm2605/ansapp ~/Software_Project_Major/
+      shell: sudo docker build -t spm2605/ansapp ~/Software-Project-Major/
       
     - name: docker run 
       shell:  sudo docker run -it -d --name ansapp -p 3100:80 spm2605/ansapp
